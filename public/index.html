@@ -364,7 +364,7 @@ Responda APENAS JSON sem markdown:
 {"produto":"tipo do produto","titulo":"título genérico","categoria":"categoria Shopee","descricao":"descrição completa com emojis e tabela","cores_melhoradas":[{"original":"","melhorado":"","abrev":""}],"skus":[{"cor":"","tamanho":"","sku":""}]}`;
 
   try{
-    const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2500,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:D.imgType,data:D.img64}},{type:'text',text:prompt}]}]})});
+    const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:2500,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:D.imgType,data:D.img64}},{type:'text',text:prompt}]}]})});
     if(!r.ok){const e=await r.json();throw new Error(typeof e.error==='string'?e.error:JSON.stringify(e));}
     const data=await r.json();
     const raw=data.content?.[0]?.text||'';
