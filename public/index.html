@@ -391,7 +391,7 @@ function irRev(){
 function irPub(){
   const tit=document.getElementById('rTit').value,cat=document.getElementById('rCat').value,dsc=document.getElementById('rDsc').value;
   const skuLines=D.skus.map(s=>`  ${s.sku} → ${s.cor} / ${s.tamanho}`).join('\n');
-  document.getElementById('mFin').value=`🚀 CRIAR ANÚNCIO SHOPEE\n\nLOJA: ${D.loja}\nTÍTULO: ${tit}\nCATEGORIA: ${cat}\nPREÇO: R$ ${D.preco}\nQUANTIDADE: ${D.qtd}\n\nDESCRIÇÃO:\n${dsc}\n\nCORES: ${D.coresIA.map(c=>c.melhorado).join(', ')||D.cores.join(', ')}\nTAMANHOS: ${D.tams.join(', ')}\nTOTAL VARIANTES: ${D.skus.length}\n\nSKUs:\n${skuLines}\n\nENVIO:\nPeso: ${D.peso} kg | ${D.larg||'—'}×${D.comp||'—'}×${D.alt||'—'} cm | ${D.envio}`;
+  document.getElementById('mFin').value=`💾 PREENCHER E SALVAR ANÚNCIO SHOPEE\n\nLOJA: ${D.loja}\nTÍTULO: ${tit}\nCATEGORIA: ${cat}\nPREÇO: R$ ${D.preco}\nQUANTIDADE: ${D.qtd}\n\nDESCRIÇÃO:\n${dsc}\n\nCORES: ${D.coresIA.map(c=>c.melhorado).join(', ')||D.cores.join(', ')}\nTAMANHOS: ${D.tams.join(', ')}\nTOTAL VARIANTES: ${D.skus.length}\n\nSKUs:\n${skuLines}\n\nENVIO:\nPeso: ${D.peso} kg | ${D.larg||'—'}×${D.comp||'—'}×${D.alt||'—'} cm | ${D.envio}`;
   go(4);
 }
 function copiar(){
