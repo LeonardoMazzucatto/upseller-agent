@@ -359,9 +359,72 @@ REGRAS:
 2. DESCRIÇÃO: GENÉRICA, sem citar cor específica. Use "vários modelos disponíveis". Inclua características, material, benefícios e tabela de medidas com valores reais em cm. Emojis. Tom persuasivo.
 3. CORES: mantenha o nome EXATAMENTE como o usuário digitou, sem adicionar adjetivos, sufixos ou enfeites. Ex: "Preto" permanece "Preto", nunca "Preto Fashion" ou "Preto Clássico".
 4. SKUs: ${D.pfx}-[ABREV_COR]-[1º_NUM]. Abrev 2-4 letras. Ex: Preto Aranha=PTO-ARN, Rosa Coração=RSA-COR.
+5. CATEGORIA: escolha EXATAMENTE uma da lista abaixo, copiando o texto igual:
+Sapatos Femininos > Saltos e Tamancos
+Sapatos Femininos > Sapatos > Scarpin
+Sapatos Femininos > Sapatos > Sapatilhas
+Sapatos Femininos > Sapatos > Slip ons, Mary Janes e Mules
+Sapatos Femininos > Sapatos > Oxford e Mocassins
+Sapatos Femininos > Sapatos > Outros
+Sapatos Femininos > Sandálias e Chinelos > Chinelos
+Sapatos Femininos > Sandálias e Chinelos > Sandália Plana e Rasteirinha
+Sapatos Femininos > Sandálias e Chinelos > Sandália Ortopédica
+Sapatos Femininos > Tênis Feminino
+Sapatos Femininos > Botas e Botins Femininos
+Sapatos Masculinos > Sapatos > Oxford, Mocassins e Derby
+Sapatos Masculinos > Sapatos > Outros
+Sapatos Masculinos > Tênis Masculino
+Sapatos Masculinos > Botas e Botins Masculinos
+Sapatos Masculinos > Sapatos Sociais
+Sapatos Masculinos > Sandálias e Chinelos > Chinelos
+Moda Infantil > Calçados de Menina > Sandálias
+Moda Infantil > Calçados de Menina > Sapatos
+Moda Infantil > Calçados de Menina > Tênis
+Moda Infantil > Calçados de Menina > Botas e Botins
+Moda Infantil > Calçados de Menino > Sandálias
+Moda Infantil > Calçados de Menino > Sapatos
+Moda Infantil > Calçados de Menino > Tênis
+Moda Infantil > Calçados de Menino > Botas e Botins
+Moda Infantil > Roupas de Menina > Vestidos e Saias
+Moda Infantil > Roupas de Menina > Conjuntos
+Moda Infantil > Roupas de Menina > Blusas e Camisetas
+Moda Infantil > Roupas de Menino > Conjuntos
+Moda Infantil > Roupas de Bebê > Bodies
+Moda Infantil > Roupas de Bebê > Macacões de Bebê
+Moda Infantil > Meias Infantis
+Roupas Femininas > Vestidos
+Roupas Femininas > Blusas e Camisetas
+Roupas Femininas > Calças
+Roupas Femininas > Saias
+Roupas Femininas > Shorts e Bermudas
+Roupas Femininas > Conjuntos
+Roupas Femininas > Casacos e Jaquetas
+Roupas Femininas > Moletom
+Roupas Femininas > Roupas Íntimas > Sutiãs
+Roupas Femininas > Roupas Íntimas > Calcinhas
+Roupas Femininas > Roupas Esportivas
+Roupas Femininas > Plus Size
+Roupas Femininas > Roupas para Gestantes
+Roupas Masculinas > Camisas
+Roupas Masculinas > Calças
+Roupas Masculinas > Shorts e Bermudas
+Roupas Masculinas > Conjuntos
+Roupas Masculinas > Roupas Esportivas
+Roupas Masculinas > Plus Size
+Bolsas Femininas > Bolsas de Mão
+Bolsas Femininas > Bolsas Transversais
+Bolsas Femininas > Mochilas Femininas
+Bolsas Femininas > Porta-documentos e Carteiras
+Acessórios de Moda > Cintos
+Acessórios de Moda > Bonés, Chapéus e Toucas
+Acessórios de Moda > Óculos de Sol
+Acessórios de Moda > Colares e Pingentes
+Acessórios de Moda > Brincos
+Acessórios de Moda > Pulseiras
+Acessórios de Moda > Anéis
 
 Responda APENAS JSON sem markdown:
-{"produto":"tipo do produto","titulo":"título genérico","categoria":"categoria Shopee","descricao":"descrição completa com emojis e tabela","cores_melhoradas":[{"original":"","melhorado":"","abrev":""}],"skus":[{"cor":"","tamanho":"","sku":""}]}`;
+{"produto":"tipo do produto","titulo":"título genérico","categoria":"categoria exata da lista acima","descricao":"descrição completa com emojis e tabela","cores_melhoradas":[{"original":"","melhorado":"","abrev":""}],"skus":[{"cor":"","tamanho":"","sku":""}]}`;
 
   try{
     const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:2500,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:D.imgType,data:D.img64}},{type:'text',text:prompt}]}]})});
